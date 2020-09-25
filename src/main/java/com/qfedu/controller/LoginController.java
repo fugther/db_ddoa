@@ -1,6 +1,7 @@
 package com.qfedu.controller;
 
 import com.qfedu.common.JsonResult;
+import com.qfedu.entity.User;
 import com.qfedu.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,12 +25,15 @@ public class LoginController {
      * 登录
      * @param no 账号
      * @param pass 密码
-     * @param httpSession 存储session
+     * @param session 存储session
      * @return
      */
     @RequestMapping("login.do")
     @ResponseBody
-    public JsonResult login(String no, String pass, HttpSession httpSession){
-        =loginService.login(no,pass)
+    public JsonResult login(String no, String pass, HttpSession session){
+        User user =loginService.login(no,pass);
+        //存储seesion
+        session.setAttribute("loginUser",user);
+        return new JsonResult(1,user.getIdentity());
     }
 }

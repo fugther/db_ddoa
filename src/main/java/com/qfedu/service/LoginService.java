@@ -1,5 +1,7 @@
 package com.qfedu.service;
 
+import com.qfedu.entity.User;
+
 /**
  * projectName: T3_db_ddoa
  * author: GSL
@@ -7,5 +9,5 @@ package com.qfedu.service;
  * description:
  */
 public interface LoginService {
-    void login(String no, String pass);
+    User login(String no, String pass);
 }
