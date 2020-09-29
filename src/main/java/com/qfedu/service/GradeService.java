@@ -14,4 +14,8 @@ public interface GradeService {
     void insertGrade(Grade grade);
 
     List<Grade> selectGrade(Integer page, Integer limit);
+
+    void deleteGradeById(int id);
+
+    void updateGrade(Grade grade);
 }

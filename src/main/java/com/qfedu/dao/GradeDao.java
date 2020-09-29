@@ -14,4 +14,8 @@ public interface GradeDao {
     void insertGrade(Grade grade);
 
     List<Grade> selectGrade();
+
+    void deleteGradeById(int id);
+
+    void updateGrade(Grade grade);
 }

@@ -35,4 +35,17 @@ public class GradeServiceImpl implements GradeService {
         PageHelper.startPage(page,limit);
         return gradeDao.selectGrade();
     }
+
+    @Override
+    public void deleteGradeById(int id) {
+        gradeDao.deleteGradeById(id);
+    }
+
+    @Override
+    public void updateGrade(Grade grade) {
+        if (grade.getId()==null) {
+            throw new RuntimeException("数据异常");
+        }
+        gradeDao.updateGrade(grade);
+    }
 }

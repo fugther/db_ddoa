@@ -53,4 +53,26 @@ public class GradeController {
         map.put("data",list);
         return map;
     }
+
+    /**
+     * 班级信息表根据id删除班级信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("deleteGradeById.do")
+    public JsonResult deleteGradeById(int id){
+        gradeService.deleteGradeById(id);
+        return new JsonResult(1,"删除成功");
+    }
+
+    /**
+     * 班级信息表根据id修改班级信息
+     * @param grade
+     * @return
+     */
+    @RequestMapping("updateGrade.do")
+    public JsonResult updateGrade(Grade grade){
+        gradeService.updateGrade(grade);
+        return new JsonResult(1,"修改成功");
+    }
 }
