@@ -204,13 +204,14 @@
     $(function (){
         $.ajax({
             type:"post",
-            url:"LoginToJudge.do",
+            url:"LoginTo.do",
             dataType:"json",
             success:function(data){
                 console.log(data)
                 if(data.code==1){
                     if(data.info==0){
-                        layer.msg("同学你好，登录成功")
+                        //layer.msg("同学你好，登录成功")
+                        alert("同学你好，登录成功")
                     }
                 }else{
                     alert("未登录")

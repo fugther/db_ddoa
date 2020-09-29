@@ -48,4 +48,21 @@ public class LoginController {
         session.invalidate();
         return new JsonResult(1,"退出登录成功");
     }
+
+    /**
+     * 验证是否登录
+     * @param session
+     * @return
+     */
+    @RequestMapping("LoginTo.do")
+    public JsonResult loginTo(HttpSession session){
+        //从session获取用户信息
+        User user = (User) session.getAttribute("loginUser");
+        if (user==null) {
+            return new JsonResult(0,"未登录");
+        }else {
+            //获取身份
+            return new JsonResult(1,user.getIdentity());
+        }
+    }
 }
