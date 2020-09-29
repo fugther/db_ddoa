@@ -75,4 +75,15 @@ public class GradeController {
         gradeService.updateGrade(grade);
         return new JsonResult(1,"修改成功");
     }
+
+
+    /**
+     * 增加学生时展示班级的下拉框
+     * @return
+     */
+    @RequestMapping("selectGrade.do")
+    public JsonResult selectGrade(){
+        List<Grade>list=gradeService.selectGrade1();
+        return new JsonResult(1,list);
+    }
 }

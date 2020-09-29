@@ -18,4 +18,6 @@ public interface GradeService {
     void deleteGradeById(int id);
 
     void updateGrade(Grade grade);
+
+    List<Grade> selectGrade1();
 }

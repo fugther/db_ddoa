@@ -48,4 +48,10 @@ public class GradeServiceImpl implements GradeService {
         }
         gradeDao.updateGrade(grade);
     }
+
+    @Override
+    public List<Grade> selectGrade1() {
+        List<Grade> list=gradeDao.selectGrade();
+        return list;
+    }
 }

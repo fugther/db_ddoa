@@ -13,7 +13,7 @@
 <body>
 
 	<div class="layui-container" style="margin-top: 50px;margin-left: 15%;">
-		<form class="layui-form" action="studentadd.do" method="post" id="form1" onsubmit="return false">
+		<form class="layui-form" action="insertStudent.do" method="post" id="form1" onsubmit="return false">
 			<div class="layui-form-item">
 				<label class="layui-form-label">学号</label>
 				<div class="layui-input-inline">
@@ -111,7 +111,7 @@
 					,layedit = layui.layedit;
 
 			layui.$.ajax({
-				url: "student/selectGrade.do",
+				url: "selectGrade.do",
 				type: 'get',
 				dataType: 'json',
 				success: function (data) {
@@ -131,13 +131,13 @@
 		$("#submit1").click(function () {
 			$.ajax({
 				type:'post',
-				url:'student/insertStudent.do',
+				url:'insertStudent.do',
 				data:$("#form1").serialize(),
 				dataType:'json',
 				success:function (data) {
 					if (data.code == 1) {
 						alert(data.info)
-						window.location.href = "gradelist.html"
+						window.location.href = "studentlist.html"
 					} else {
 						alert(data.info)
 					}
