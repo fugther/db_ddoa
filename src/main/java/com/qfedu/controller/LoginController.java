@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
  * description:
  */
 @Controller
+@ResponseBody
 public class LoginController {
     @Autowired
     private LoginService loginService;
@@ -29,11 +30,22 @@ public class LoginController {
      * @return
      */
     @RequestMapping("login.do")
-    @ResponseBody
     public JsonResult login(String no, String pass, HttpSession session){
         User user =loginService.login(no,pass);
         //存储seesion
         session.setAttribute("loginUser",user);
         return new JsonResult(1,user.getIdentity());
+    }
+
+    /**
+     * 退出
+     * @param session   用户的session
+     * @return
+     */
+    @RequestMapping("loginOut.do")
+    public JsonResult loginOut(HttpSession  session){
+        //删除该用户session
+        session.invalidate();
+        return new JsonResult(1,"退出登录成功");
     }
 }
