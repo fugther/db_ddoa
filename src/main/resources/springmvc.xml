@@ -42,7 +42,7 @@
     <bean id="convertorService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <list>
-<!--                <bean class="com.ddedu.converter.CustomerDateConvert"/>-->
+                <bean class="com.qfedu.converter.CustomerDateConvert"/>
 
             </list>
         </property>
