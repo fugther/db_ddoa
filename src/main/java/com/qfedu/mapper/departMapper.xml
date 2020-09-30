@@ -6,4 +6,8 @@
     <insert id="addDepart" parameterType="com.qfedu.entity.Depart">
                 insert into t_depart (name,createtime ,num,flag) values (#{name},#{createtime},1,1)
     </insert>
+
+    <select id="departlist" resultType="com.qfedu.entity.Depart">
+        select * from t_depart where flag = 1
+    </select>
 </mapper>

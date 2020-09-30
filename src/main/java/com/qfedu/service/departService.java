@@ -2,6 +2,8 @@ package com.qfedu.service;
 
 import com.qfedu.entity.Depart;
 
+import java.util.List;
+
 /**
  * projectName: T3_db_ddoa
  * author: GSL
@@ -10,4 +12,6 @@ import com.qfedu.entity.Depart;
  */
 public interface departService {
     void addDepart(Depart depart);
+
+    List<Depart> departlist();
 }
