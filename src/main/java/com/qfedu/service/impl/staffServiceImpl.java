@@ -1,10 +1,13 @@
 package com.qfedu.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.qfedu.dao.staffDao;
 import com.qfedu.entity.Staff;
 import com.qfedu.service.staffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * projectName: T3_db_ddoa
@@ -23,5 +26,16 @@ public class staffServiceImpl implements staffService {
             throw new RuntimeException("数据异常");
         }
         staffDao.staffAdd(staff);
+    }
+
+    @Override
+    public List<Staff> staffAll(Integer page, Integer limit) {
+        PageHelper.startPage(page,limit);
+        return staffDao.staffAll();
+    }
+
+    @Override
+    public void staffdelete(int id) {
+        staffDao.staffdelete(id);
     }
 }

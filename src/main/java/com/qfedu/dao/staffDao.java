@@ -2,6 +2,8 @@ package com.qfedu.dao;
 
 import com.qfedu.entity.Staff;
 
+import java.util.List;
+
 /**
  * projectName: T3_db_ddoa
  * author: GSL
@@ -10,4 +12,8 @@ import com.qfedu.entity.Staff;
  */
 public interface staffDao {
     void staffAdd(Staff staff);
+
+    List<Staff> staffAll();
+
+    void staffdelete(int id);
 }
