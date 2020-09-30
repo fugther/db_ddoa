@@ -104,7 +104,7 @@
 								$.ajax({
 									type:"post",
 									data:$('form').serialize(),
-									url:"course/addCourse.do",
+									url:"addCourse.do",
 									success:function (res) {
 										if (res.code==1){
 											layer.msg('成功')
