@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.staffDao">
+    <insert id="staffAdd" parameterType="com.qfedu.entity.Staff">
+      insert into t_staff (u_no,name,d_id,flag,sex,email,qq,phone,heading,entryTime,d_name)
+        values (#{u_no},#{name},#{did},#{flag},#{sex},#{email},#{qq},#{phone},#{heading},#{entryTime},#{d_name})
+    </insert>
+</mapper>
