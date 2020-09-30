@@ -14,4 +14,6 @@ public interface departService {
     void addDepart(Depart depart);
 
     List<Depart> departlist();
+
+
 }

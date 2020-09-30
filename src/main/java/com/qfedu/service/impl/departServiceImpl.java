@@ -32,4 +32,6 @@ public class departServiceImpl implements departService {
     public List<Depart> departlist() {
         return departDao.departlist();
     }
+
+
 }

@@ -14,4 +14,6 @@ public interface departDao {
     void addDepart(Depart depart);
 
     List<Depart> departlist();
+
+
 }

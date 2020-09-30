@@ -1,6 +1,7 @@
 package com.qfedu.controller;
 
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.qfedu.common.JsonResult;
 import com.qfedu.entity.Depart;
 import com.qfedu.entity.Grade;
@@ -45,13 +46,9 @@ public class departController {
     @RequestMapping("departlist.do")
     public Map<String,Object> departlist(){
         HashMap<String, Object> map = new HashMap<>();
-
         List<Depart> departs = departService.departlist();
-
         String[] names = new String[departs.size()];
         int[] counts  = new int[departs.size()];
-
-
         for (int i=0;i < departs.size();i++){
             names[i]= departs.get(i).getName();
             counts[i]= departs.get(i).getNum();
@@ -61,5 +58,22 @@ public class departController {
         map.put("count",counts);
 
         return map;
+    }
+
+
+    @RequestMapping("/departpage.do")
+    public Map<String,Object> selectAll(Integer page,Integer limit){
+        HashMap<String, Object> map = new HashMap<>();
+        PageHelper.startPage(page, limit);
+
+        List<Depart> list = departService.departlist();
+        long total = ((Page) list).getTotal();
+        map.put("code",0);
+        map.put("msg", "");
+        map.put("count",total);
+        map.put("data", list);
+
+        return map;
+
     }
 }
