@@ -33,5 +33,18 @@ public class departServiceImpl implements departService {
         return departDao.departlist();
     }
 
+    @Override
+    public void departdelete(int id) {
+        departDao.departdelete(id);
+    }
+
+    @Override
+    public void departupdate(Depart depart) {
+        if (depart==null) {
+            throw new RuntimeException("数据异常");
+        }
+        departDao.departupdate(depart);
+    }
+
 
 }

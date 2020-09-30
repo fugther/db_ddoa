@@ -10,4 +10,12 @@
     <select id="departlist" resultType="com.qfedu.entity.Depart">
         select * from t_depart where flag = 1
     </select>
+
+    <delete id="departdelete" parameterType="int">
+        delete  from t_depart where id =#{id}
+    </delete>
+
+    <update id="departupdate" parameterType="com.qfedu.entity.Depart">
+        update  t_depart set name = #{name} where id = #{id}
+    </update>
 </mapper>

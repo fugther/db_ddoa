@@ -16,4 +16,7 @@ public interface departDao {
     List<Depart> departlist();
 
 
+    void departdelete(int id);
+
+    void departupdate(Depart depart);
 }

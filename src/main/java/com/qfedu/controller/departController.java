@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.swing.plaf.PanelUI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,8 +61,13 @@ public class departController {
         return map;
     }
 
-
-    @RequestMapping("/departpage.do")
+    /**
+     * 分页展示部门信息
+     * @param page
+     * @param limit
+     * @return
+     */
+    @RequestMapping("departpage.do")
     public Map<String,Object> selectAll(Integer page,Integer limit){
         HashMap<String, Object> map = new HashMap<>();
         PageHelper.startPage(page, limit);
@@ -75,5 +81,27 @@ public class departController {
 
         return map;
 
+    }
+
+    /**
+     * 删除部门信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("departdelete.do")
+    public JsonResult departdelete(int id){
+        departService.departdelete(id);
+        return new JsonResult(1,"删除成功");
+    }
+
+    /**
+     * 修改部门信息
+     * @param depart
+     * @return
+     */
+    @RequestMapping("departupdate.do")
+    public JsonResult departupdate(Depart depart){
+        departService.departupdate(depart);
+        return new JsonResult(1,"修改成功");
     }
 }

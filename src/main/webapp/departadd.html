@@ -81,7 +81,8 @@
                url:"addDepart.do",
                success:function (res) {
                     if (res.code==1){
-                        layer.msg('成了')
+                        alert(res.info)
+                        window.location.href='departlist.html'
                     }else{
                         layer.msg(res.info)
                     }

@@ -37,7 +37,7 @@ function showData(obj) {
 </head>
 <body>
 
-	<div class="layui-container" style="margin-top: 5px">
+	<div class="layui-container" style="margin-top: 5px" onclick="return false;">
 		<form class="layui-form" >
 		<div class="layui-form-item">
 				<label class="layui-form-label">部门序号</label>
@@ -75,7 +75,8 @@ function showData(obj) {
 			url:"departupdate.do",
 			success:function (data) {
 				if(data.code==1){
-					console.log("修改成功")
+					// console.log("修改成功")
+					alert(data.info)
 					window.location.href='departlist.html'
 				}
 			}
