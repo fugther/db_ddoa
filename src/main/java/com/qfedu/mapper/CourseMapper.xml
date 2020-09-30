@@ -6,4 +6,28 @@
     <insert id="addCourse" parameterType="com.qfedu.entity.Course">
                 insert into t_course (name,createtime ,week) values (#{name},#{createtime},#{week})
     </insert>
+
+    <select id="coursepage" resultType="com.qfedu.entity.Course">
+                select * from t_course where flag =1
+    </select>
+
+    <delete id="coursedelete" parameterType="int">
+                delete from t_course where id =#{id};
+    </delete>
+
+    <update id="courseupdate" parameterType="com.qfedu.entity.Course">
+        update  t_course
+        <set>
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="createtime != null">
+                createtime=#{createtime},
+            </if>
+            <if test="week != null">
+                week=#{week}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>
